@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module lecturaFicheroAleatorio2 {
+}
