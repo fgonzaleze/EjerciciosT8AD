@@ -14,25 +14,23 @@ public class EjercicioLecturaFicheroAleatorio2 {
 	public static void main(String[] args) {
 		try {
 			File texto = new File("abcde.txt");
-
+			File texto2 = new File("abcde2.txt");
 			RandomAccessFile file;
-
-			file = new RandomAccessFile(texto, "rw");
-
-			// En ASCII el 97 es la a y el 101 la e, así que tendríamos que ir desde la e
-			// hasta el 97, la
-			// a
-			for (int i = 101; i >= 97; i--) {
-
-				file.writeChar(i);
-
-				file.writeChars("\n");
-				file.close();
+			RandomAccessFile file2;
+			file = new RandomAccessFile(texto, "r");
+			file2 = new RandomAccessFile(texto2, "rw");
+			
+			for(int i= (int) file.length()-1;i>=0;i=i-3) {
+				file.seek(i);
+				String trozo = file.readLine();
+				file2.writeBytes(trozo+"\n");
 			}
+			file.close();
+			file2.close();
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
